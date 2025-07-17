@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antic+Didone&family=The+Nautigal:wght@400;700&family=Mrs+Saint+Delafield&display=swap');
+
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    
+
+}
+
+/* Estilos base do body */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(img/Fundo\ Erick.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #000000;
+  line-height: 1.6;
+  width: 100%;
+  height: 100vh;
+
+ 
+}
+
+.container-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.central {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 6rem;
+  gap: 0.1rem;
+}
+
+.esquerda {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+.direita_text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  white-space: nowrap;
+  margin-top: 35rem;
+  margin-left: 8rem;
+  gap: 0rem;
+}
+
+.titulo {
+  font-size: 7.5rem;
+  font-family: 'Antic Didone', serif;
+  font-weight: 200;
+  color: white;
+    letter-spacing: -0.5px; /* Diminuindo espaçamento entre letras */
+            margin-bottom: 5px; /* Reduzindo espaçamento vertical */
+            line-height: 1; /* Eliminando espaço extra entre linhas */
+}
+
+.titulo_4 {
+  font-size: 8rem;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  color: white;
+  line-height: 5rem;
+}
+
+.destaque_25 {
+  color: rgb(114, 114, 224);
+}
+
+.titulo_5 {
+  font-size: 9rem;
+  font-family: 'Mrs Saint Delafield', cursive;
+  color: white;
+  letter-spacing: -5px; /* Espaçamento levemente aumentado para contraste */
+  margin-top: 5px;
+  line-height: 7rem;
+
+}
+
+
+
+
+
+.imagemg {
+  width: 85%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 30%,
+    rgba(0,0,0,0.7) 50%,
+    rgba(0,0,0,0.3) 70%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 30%,
+    rgba(0,0,0,0.7) 50%,
+    rgba(0,0,0,0.3) 70%,
+    transparent 100%
+  );
+}
+
+
+.direita {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+
+.central_icones {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.titulo_2 {
+  font-size: 3.5rem;
+  font-family: 'Antic Didone', serif;
+  font-weight: 10;
+  text-align: center;
+  padding-bottom: 2rem;
+  color: white;
+}
+
+.fa-location-dot, .fa-calendar-days, .fa-envelope, .fa-whatsapp {
+  color: #08458f;
+  font-size: 2rem;
+  
+}
+
+.Local {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 10;
+  font-family: 'Antic Didone', serif;
+}
+
+.redes {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+  gap: 1rem;
+
+}
+
+.titulo_redes {
+  font-size: 2rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Antic Didone', serif;
+  font-weight: 10;
+  padding-top: 2.5rem;
+  color: white;
+}
+
+.icones_redes {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#redes_sociais {
+  font-size: 3.2rem;
+  color:#5b9cec;
+}
+
+.buton_fale_comigo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 1rem;
+  background-color: #08458f;
+  width: 11rem;
+  height: 3.5rem;
+}
+
+
+@media (max-width: 1440px) {
+
+  .direita_text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  white-space: nowrap;
+  margin-top: 30rem;
+  margin-left: 12rem;
+  gap: 0rem;
+}
+
+.imagemg {
+  height: 85%;
+  width: 85%;
+  padding-left: 6rem;
+}
+
+  .titulo, .titulo_4, .titulo_5, .nome {
+    font-size: 6rem;
+    line-height:5rem;
+    
+  }
+  .titulo_4 {
+    font-size: 6rem;
+  }
+  .titulo_5 {
+    font-size: 6rem;
+    
+  }
+  .nome {
+    font-size: 4rem;
+   
+  }
+  .central {
+    padding: 1rem 3rem;
+  }
+
+  .direita {
+    margin-right: 5rem;
+  }
+
+   .Local , .buton_fale_comigo {
+    font-size: 1.2rem;
+  }
+
+  .titulo_2 {
+    font-size: 2.4rem;
+  }
+
+  .titulo_redes {
+    font-size: 1.5;
+  }
+
+  .fa-location-dot, .fa-calendar-days, .fa-envelope, .fa-whatsapp {
+  color: #08458f;
+  font-size: 1.5rem;
+
+
+  
+}
+
+}
+
+@media screen and (max-width: 1268px) {
+  
+  
+  .container-principal {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    
+   
+  }
+
+  .central {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  .esquerda {
+  position: relative; /* necessário para o texto ficar sobreposto */
+  width: 100%;
+  max-width: 400px; /* ou o tamanho que preferir */
+  margin: auto;
+}
+
+  .imagemg {
+    width: 25rem;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .direita_text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20rem;
+    margin-left: 3rem;
+    
+    
+  }
+
+  .titulo {
+    font-size: 5rem;
+    margin: 0 auto;
+    line-height: 3rem;
+    
+  }
+
+  .titulo_4 {
+    font-size: 5.5rem;
+    margin: 0 auto;
+    line-height: 6rem;
+  }
+
+  .titulo_5 {
+    font-size: 6rem;
+     margin: 0 auto;
+     line-height: 3rem;
+  }
+
+  .direita {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin: 1rem;
+    text-align: left;
+    padding-top: 8rem;
+
+  }
+
+  .titulo_2 {
+    font-size: 1.8rem;
+    
+  }
+
+  .Local {
+    font-size: 1rem;
+  }
+
+  .buton_fale_comigo {
+    width: 100%;
+    height: 3rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .titulo_redes {
+    font-size: 1.5rem;
+  }
+
+  .icones_redes {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 2rem 2rem 2rem;
+  }
+
+  .fa-location-dot,
+  .fa-calendar-days,
+  .fa-envelope,
+  .fa-whatsapp {
+    font-size: 1.2rem;
+  }
+
+  .redes {
+    align-items: center;
+    gap: 1rem;
+  }
+}
