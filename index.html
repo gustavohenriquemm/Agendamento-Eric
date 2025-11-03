@@ -33,6 +33,11 @@
 
         <video id="storyVideo" autoplay muted playsinline></video>
 
+        <!-- Botão de som -->
+<button id="toggleAudio" class="botao-audio">
+    🔇 Som
+</button>
+
 
         <div class="story-buttons">
             <button onclick="anteriorStory()">Anterior</button>
@@ -157,6 +162,19 @@ function anteriorStory() {
     storyVideo.play();
     updateBars();
 }
+const toggleAudioBtn = document.getElementById('toggleAudio');
+
+// Alterna o som ao clicar
+toggleAudioBtn.addEventListener('click', () => {
+    if (storyVideo.muted) {
+        storyVideo.muted = false;
+        toggleAudioBtn.textContent = "🔊 Som ligado";
+    } else {
+        storyVideo.muted = true;
+        toggleAudioBtn.textContent = "🔇 Som desligado";
+    }
+});
+
 
     </script>
 </body>
