@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento Eric</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="container-principal">
+        <div class="conteudo">
+            <section class="central">
+                <div class="esquerda">
+                    <div class="story-bolinha" id="story1">
+                        <img src="img/Erick.png" alt="Story Eric">
+                    </div>
+                    
+                    <div class="story-modal" id="storyModal">
+    <div class="story-conteudo">
+        <span class="fechar" id="fecharModal">&times;</span>
+
+        <!-- Barra de progresso -->
+        <div class="story-bar-container" id="storyBarContainer">
+            <div class="story-bar"><div class="story-bar-fill"></div></div>
+            <div class="story-bar"><div class="story-bar-fill"></div></div>
+            <div class="story-bar"><div class="story-bar-fill"></div></div>
+            <div class="story-bar"><div class="story-bar-fill"></div></div>
+            <div class="story-bar"><div class="story-bar-fill"></div></div>
+        </div>
+
+        <video id="storyVideo" autoplay muted controls></video>
+
+        <div class="story-buttons">
+            <button onclick="anteriorStory()">Anterior</button>
+            <button onclick="proximoStory()">Próximo</button>
+        </div>
+    </div>
+</div>
+
+
+                    <img class="imagemg" src="img/Erick.png" alt="">
+                    <div class="direita_text">
+                        <h1 class="titulo">AGENDA</h1>
+                        <p class="titulo_4">20<strong class="destaque_25">25</strong></p>
+                        <p class="titulo_5">aberTa</p>
+                    </div>
+                </div>
+
+                <div class="direita">
+                    <div class="central_icones">
+                        <h2 class="titulo_2">Entre em contato para <br>agendar</h2>
+                        <i class="fa-solid fa-location-dot"> 
+                            <a class="Local">Local: Evento em local a combinar</a>
+                        </i>
+                        <i class="fa-solid fa-calendar-days">
+                            <a class="Local">Disponibilidade: Conforme agendamento prévio, a ser combinado.</a>
+                        </i> 
+                        <i class="fa-solid fa-envelope"> 
+                            <a class="Local">E-mail: ericcrodrigies27@gmail.com</a>
+                        </i>
+                        <i class="fa-brands fa-whatsapp"> 
+                            <a class="Local">WhatsApp: +55 (11) 95789-2189</a>
+                        </i>
+                    </div>
+
+                    <div class="redes">
+                        <h3 class="titulo_redes">Minhas redes sociais:</h3>
+                        <div class="icones_redes">
+                            <a href="https://www.instagram.com/ericc_rodrigues/" target="_blank">
+                                <i class="fa-brands fa-instagram" id="redes_sociais"></i>
+                            </a>
+                            <a href="https://wa.me/5511957892189" target="_blank">
+                                <i class="fa-brands fa-whatsapp" id="redes_sociais"></i>
+                            </a>
+                        </div>
+                        <a href="https://wa.me/5511957892189" class="buton_fale_comigo">Fale comigo</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>  
+
+    <script>
+       const storyBolinha = document.getElementById('story1');
+const storyModal = document.getElementById('storyModal');
+const fecharModal = document.getElementById('fecharModal');
+const storyVideo = document.getElementById('storyVideo');
+
+// Lista de vídeos
+let stories = [
+    "img/Eric1.mp4",
+    "img/Eric2.mp4",
+    "img/Eric3.mp4",
+    "img/Eric4.mp4",
+    "img/Eric5.mp4"
+];
+
+let indexStory = 0;
+
+// Seleciona todas as barras de progresso
+const storyBars = Array.from(document.querySelectorAll('.story-bar-fill'));
+
+// Atualiza as barras
+function updateBars() {
+    storyBars.forEach((bar, idx) => {
+        if(idx < indexStory) bar.style.width = '100%';
+        else bar.style.width = '0%';
+    });
+}
+
+// Anima a barra do vídeo atual
+storyVideo.addEventListener('timeupdate', () => {
+    let progress = (storyVideo.currentTime / storyVideo.duration) * 100;
+    storyBars[indexStory].style.width = progress + '%';
+});
+
+// Abrir modal
+storyBolinha.onclick = function() {
+    storyModal.style.display = "flex";
+    storyVideo.src = stories[indexStory];
+    storyVideo.play();
+    updateBars();
+}
+
+// Fechar modal
+fecharModal.onclick = function() {
+    storyModal.style.display = "none";
+    storyVideo.pause();
+}
+
+// Fechar clicando fora
+window.onclick = function(event) {
+    if(event.target == storyModal) {
+        storyModal.style.display = "none";
+        storyVideo.pause();
+    }
+}
+
+// Próximo story
+function proximoStory() {
+    indexStory++;
+    if(indexStory >= stories.length) indexStory = 0;
+    storyVideo.src = stories[indexStory];
+    storyVideo.play();
+    updateBars();
+}
+
+// Story anterior
+function anteriorStory() {
+    indexStory--;
+    if(indexStory < 0) indexStory = stories.length - 1;
+    storyVideo.src = stories[indexStory];
+    storyVideo.play();
+    updateBars();
+}
+
+    </script>
+</body>
+</html>
