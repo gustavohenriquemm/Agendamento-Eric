@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Antic+Didone&family=The+Nautigal:wght@400;700&family=Mrs+Saint+Delafield&display=swap');
 
 /* ================= RESET ================= */
@@ -76,33 +75,32 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
+/* Caixa do conteúdo */
 .story-conteudo {
     position: relative;
-    max-width: 400px;
     width: 90%;
-    max-height: 90%;
-  
-    border-radius: 12px;
+    max-width: 400px;
+    aspect-ratio: 9/16; /* formato vertical tipo story */
+    background: #000;
+    border-radius: 15px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 20px; /* espaço para barra e botão fechar */
 }
 
-/* Video stories */
+/* Vídeo dentro do modal */
 .story-conteudo video {
-    width: 90%;
-    max-width: 399px;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.63);
 }
 
 /* Botão fechar */
@@ -114,42 +112,43 @@ body {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1010;
+    z-index: 10;
 }
 
 /* ================= BARRA DE PROGRESSO ================= */
 .story-bar-container {
     position: absolute;
     top: 10px;
-    left: 5px;
-    right: 5px;
-    height: 4px;
+    left: 10px;
+    right: 10px;
     display: flex;
     gap: 4px;
-    z-index: 1010;
+    z-index: 5;
 }
 
 .story-bar {
     flex: 1;
-    height: 100%;
-    background-color: rgba(255,255,255,0.3);
-    border-radius: 2px;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
     overflow: hidden;
+    border-radius: 3px;
 }
 
 .story-bar-fill {
     height: 100%;
     width: 0%;
-    background-color: white;
-    transition: width 0.25s linear;
+    background: white;
+    transition: width 0.2s linear;
 }
 
 /* ================= BOTÕES STORY ================= */
 .story-buttons {
+    position: absolute;
+    bottom: 10px;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
+    width: 90%;
+    z-index: 6;
 }
 
 .story-buttons button {
