@@ -98,7 +98,7 @@ body {
 /* Video stories */
 .story-conteudo video {
     width: 90%;
-    max-width: 400px;
+    max-width: 399px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.63);
