@@ -11,6 +11,11 @@
 </head>
 <body>
     <div class="container-principal">
+        <!-- Imagem Eric1 no canto superior esquerdo -->
+        <div class="imagem-canto-esquerdo">
+            <img src="img/eric1.png" alt="Eric">
+        </div>
+        
         <div class="conteudo">
             <section class="central">
                 <div class="esquerda">
@@ -47,17 +52,15 @@
 </div>
 
 
-                    <img class="imagemg" src="img/Erick.png" alt="">
-                    <div class="direita_text">
-                        <h1 class="titulo">AGENDA</h1>
-                        <p class="titulo_4">20<strong class="destaque_25">25</strong></p>
-                        <p class="titulo_5">aberTa</p>
+                    <div class="wrapper-imgs">
+                        <img class="imagemg" src="img/ericpricipal.png" alt="">
+                        <img class="imagem-texto" src="img/teste.png" alt="Agendas Abertas 2026">
                     </div>
                 </div>
 
                 <div class="direita">
                     <div class="central_icones">
-                        <h2 class="titulo_2">Entre em contato para <br>agendar</h2>
+                        <h2 class="titulo_2">Entre em contato para agendar</h2>
                         <i class="fa-solid fa-location-dot"> 
                             <a class="Local">Local: Evento em local a combinar</a>
                         </i>
@@ -175,6 +178,13 @@ toggleAudioBtn.addEventListener('click', () => {
     }
 });
 
+// Abrir story automaticamente ao carregar
+window.addEventListener('load', () => {
+    storyModal.style.display = "flex";
+    storyVideo.src = stories[indexStory];
+    storyVideo.play().catch(() => {});
+    updateBars();
+});
 
     </script>
 </body>

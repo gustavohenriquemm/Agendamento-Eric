@@ -18,7 +18,8 @@ body {
     color: #000000;
     line-height: 1.6;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ================= CONTAINER PRINCIPAL ================= */
@@ -26,14 +27,58 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
 }
 
 /* ================= CENTRAL ================= */
 .central {
     display: flex;
     flex-direction: row;
-    padding: 1rem 6rem;
-    gap: 0.1rem;
+    padding: 0;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================= IMAGEM CANTO ESQUERDO (ERIC1) ================= */
+.imagem-canto-esquerdo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 400px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.imagem-canto-esquerdo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(3px);
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        rgba(0,0,0,0.8) 40%,
+        rgba(0,0,0,0.4) 70%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        rgba(0,0,0,0.8) 40%,
+        rgba(0,0,0,0.4) 70%,
+        transparent 100%
+    );
 }
 
 /* ================= STORY BOLINHA ================= */
@@ -44,7 +89,7 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 4px dashed #4f42c2;
+    border: 4px dashed #8B7355;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -52,7 +97,7 @@ body {
     justify-content: center;
     align-items: center;
     animation: girarBorda 2s linear infinite;
-    z-index: 10;
+    z-index: 20;
     transition: transform 0.3s ease;
 }
 
@@ -86,7 +131,8 @@ body {
     position: relative;
     width: 90%;
     max-width: 400px;
-    aspect-ratio: 9/16; /* formato vertical tipo story */
+    max-height: 90vh;
+    aspect-ratio: 9/16;
     background: #000;
     border-radius: 15px;
     overflow: hidden;
@@ -196,67 +242,49 @@ body {
     position: relative;
 }
 
+/* ================= WRAPPER IMAGENS ================= */
+.wrapper-imgs {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
 /* ================= DIREITA TEXTO ================= */
-.direita_text {
-    display: flex;
-    flex-direction: column;
+.imagem-texto {
     position: absolute;
-    white-space: nowrap;
-    margin-top: 35rem;
-    margin-left: 8rem;
-    gap: 0rem;
-}
-
-/* ================= TÍTULOS ================= */
-.titulo {
-    font-size: 7.5rem;
-    font-family: 'Antic Didone', serif;
-    font-weight: 200;
-    color: white;
-    letter-spacing: -0.5px;
-    margin-bottom: 5px;
-    line-height: 1;
-}
-
-.titulo_4 {
-    font-size: 8rem;
-    font-family: 'Anton', sans-serif;
-    font-weight: 400;
-    color: white;
-    line-height: 5rem;
-}
-
-.destaque_25 {
-    color: rgb(114, 114, 224);
-}
-
-.titulo_5 {
-    font-size: 9rem;
-    font-family: 'Mrs Saint Delafield', cursive;
-    color: white;
-    letter-spacing: -5px;
-    margin-top: 5px;
-    line-height: 7rem;
+    width: 600px;
+    height: auto;
+    top: 60%;
+    left: 45%;
+    transform: translateX(-50%);
+    z-index: 15;
+    object-fit: contain;
 }
 
 /* ================= IMAGEM ================= */
 .imagemg {
-    width: 85%;
-    height: auto;
+    width: auto;
+    height: 560px;
+    max-width: 100%;
+    object-fit: contain;
+    margin-left: -4rem;
+    margin-bottom: 8rem;
+    position: relative;
+    z-index: 12;
     -webkit-mask-image: linear-gradient(
         to bottom,
         black 0%,
-        black 30%,
-        rgba(0,0,0,0.7) 50%,
-        rgba(0,0,0,0.3) 70%,
+        black 60%,
+        rgba(0,0,0,0.9) 80%,
+        rgba(0,0,0,0.5) 90%,
         transparent 100%
     );
     mask-image: linear-gradient(
         to bottom,
         black 0%,
-        black 30%,
-        rgba(0,0,0,0.7) 50%,
-        rgba(0,0,0,0.3) 70%,
+        black 60%,
+        rgba(0,0,0,0.9) 80%,
+        rgba(0,0,0,0.5) 90%,
         transparent 100%
     );
 }
@@ -265,42 +293,54 @@ body {
 .direita {
     display: flex;
     flex-direction: column;
-    padding-top: 3rem;
+    padding: 1.5rem 2rem;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.05) 70%, transparent 100%);
+    border-radius: 2rem;
 }
 
 .central_icones {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.2rem;
+    padding-top: 2rem;
 }
 
 .titulo_2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-family: 'Antic Didone', serif;
-    font-weight: 10;
+    font-weight: 800;
     text-align: center;
-    padding-bottom: 2rem;
-    color: white;
+    padding-bottom: 4rem;
+    line-height: 1.1;
+    color: #3b2510;
+    text-shadow: 1px 1px 8px rgba(255, 220, 180, 0.6);
 }
 
 .fa-location-dot, .fa-calendar-days, .fa-envelope, .fa-whatsapp {
-    color: #08458f;
+    color: #A0826D;
     font-size: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.fa-location-dot:hover, .fa-calendar-days:hover, .fa-envelope:hover, .fa-whatsapp:hover {
+    color: #C4A882;
+    transform: scale(1.1);
 }
 
 .Local {
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.4rem;
+    color: #f5ece0;
     font-weight: 10;
     font-family: 'Antic Didone', serif;
+    text-shadow: 1px 1px 4px rgba(80, 50, 20, 0.9);
 }
 
 /* ================= REDES ================= */
 .redes {
     display: flex;
     flex-direction: column;
-    padding-top: 0.5rem;
-    gap: 1rem;
+    padding-top: 0rem;
+    gap: 0.3rem;
 }
 
 .titulo_redes {
@@ -308,20 +348,28 @@ body {
     text-align: center;
     font-family: 'Antic Didone', serif;
     font-weight: 10;
-    padding-top: 2.5rem;
-    color: white;
+    margin-top: 5rem;
+    color: #f5ece0;
+    text-shadow: 1px 1px 6px rgba(80, 50, 20, 0.8);
 }
 
 .icones_redes {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.8rem;
     justify-content: center;
 }
 
 #redes_sociais {
-    font-size: 3.2rem;
-    color: #5b9cec;
+    font-size: 3.5rem;
+    color: #A0826D;
+    transition: all 0.3s ease;
+}
+
+#redes_sociais:hover {
+    color: #C4A882;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(160, 130, 109, 0.6));
 }
 
 .buton_fale_comigo {
@@ -331,61 +379,52 @@ body {
     margin: auto;
     border-radius: 0.5rem;
     text-decoration: none;
-    color: aliceblue;
-    font-size: 1rem;
-    background-color: #08458f;
-    width: 11rem;
-    height: 3.5rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);
+    width: 10rem;
+    height: 2.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+}
+
+.buton_fale_comigo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 115, 85, 0.5);
+    background: linear-gradient(135deg, #A0826D 0%, #C4A882 100%);
 }
 
 /* ================= RESPONSIVIDADE ================= */
 @media (max-width: 1440px) {
-    .direita_text {
-        margin-top: 30rem;
-        margin-left: 12rem;
-    }
-
-    .imagemg {
-        height: 85%;
-        width: 85%;
-        padding-left: 6rem;
-    }
-
-    .titulo, .titulo_4, .titulo_5 {
-        font-size: 6rem;
-        line-height: 5rem;
-    }
-
-    .titulo_4 {
-        font-size: 6rem;
-    }
-
-    .titulo_5 {
-        font-size: 6rem;
+    .imagem-texto {
+        width: 600px;
+        height: auto;
     }
 
     .central {
-        padding: 1rem 3rem;
+        padding: 0.5rem 1rem;
+        gap: 1.5rem;
     }
 
     .direita {
-        margin-right: 5rem;
+        margin-right: 0;
     }
 
-    .Local, .buton_fale_comigo {
-        font-size: 1.2rem;
+    .Local {
+        font-size: 1rem;
     }
 
     .titulo_2 {
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
 
     .titulo_redes {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .fa-location-dot, .fa-calendar-days, .fa-envelope, .fa-whatsapp {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -412,33 +451,33 @@ body {
         margin: auto;
     }
 
+    .wrapper-imgs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 380px;
+        margin: 0 auto;
+        position: static;
+    }
+
     .imagemg {
-        width: 25rem;
+        width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
+        margin: 0;
+        margin-bottom: 0;
         padding: 0;
     }
 
-    .direita_text {
-        margin-top: 20rem;
-        margin-left: 3rem;
-    }
-
-    .titulo {
-        font-size: 5rem;
-        margin: 0 auto;
-        line-height: 3rem;
-    }
-
-    .titulo_4 {
-        font-size: 5.5rem;
-        line-height: 6rem;
-    }
-
-    .titulo_5 {
-        font-size: 6rem;
-        line-height: 3rem;
+    .imagem-texto {
+        position: static;
+        width: 90%;
+        height: auto;
+        margin: -2rem auto 0;
+        transform: none;
+        left: auto;
+        top: auto;
     }
 
     .direita {
@@ -446,7 +485,7 @@ body {
         justify-content: center;
         margin: 1rem;
         text-align: left;
-        padding-top: 8rem;
+        padding-top: 2rem;
     }
 
     .titulo_2 {
@@ -484,5 +523,187 @@ body {
     .redes {
         align-items: center;
         gap: 1rem;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media screen and (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+        background-image: none;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/Fundo\ Erick.png);
+        background-size: cover;
+        background-position: center;
+        transform: scaleY(-1);
+        z-index: -1;
+    }
+
+    .container-principal {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding-bottom: 2rem;
+    }
+
+    .conteudo {
+        width: 100%;
+    }
+
+    .central {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+    }
+
+    .esquerda {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0 auto;
+        overflow: visible;
+        padding-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper-imgs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 85vw;
+        max-width: 360px;
+        margin: 0 auto;
+        position: static;
+    }
+
+    .imagemg {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        margin-bottom: 0;
+        display: block;
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black 60%,
+            rgba(0,0,0,0.6) 80%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black 60%,
+            rgba(0,0,0,0.6) 80%,
+            transparent 100%
+        );
+    }
+
+    .imagem-texto {
+        position: static;
+        width: 85vw;
+        max-width: 320px;
+        height: auto;
+        margin: -2rem auto 0;
+        display: block;
+        transform: none;
+        left: auto;
+        bottom: auto;
+        top: auto;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+        border-radius: 1rem;
+        padding: 0.3rem;
+    }
+
+    .story-bolinha {
+        position: absolute;
+        top: 4.5rem;
+        left: 8px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .imagem-canto-esquerdo {
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 220px;
+        height: 300px;
+    }
+
+    .imagem-canto-esquerdo img {
+        filter: blur(3px);
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            rgba(0,0,0,0.8) 40%,
+            rgba(0,0,0,0.4) 70%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            rgba(0,0,0,0.8) 40%,
+            rgba(0,0,0,0.4) 70%,
+            transparent 100%
+        );
+    }
+
+    .direita {
+        width: 90vw;
+        padding: 1.2rem 1rem;
+        text-align: center;
+    }
+
+    .titulo_2 {
+        font-size: 1.8rem;
+        padding-bottom: 1rem;
+    }
+
+    .central_icones {
+        gap: 0.8rem;
+        padding-top: 0;
+    }
+
+    .fa-location-dot, .fa-calendar-days, .fa-envelope, .fa-whatsapp {
+        font-size: 1.3rem;
+    }
+
+    .Local {
+        font-size: 0.95rem;
+    }
+
+    .titulo_redes {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+    }
+
+    #redes_sociais {
+        font-size: 2.5rem;
+    }
+
+    .buton_fale_comigo {
+        width: 100%;
+        font-size: 1rem;
+        height: 3rem;
+    }
+}
+
+/* ================= ANIMAÇÕES ================= */
+@keyframes girarBorda {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
