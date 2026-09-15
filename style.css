@@ -34,3 +34,74 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
 /* Alinha o conteúdo inferior com a borda visual do lettering ERIC. */
 .hero h1,.hero-description,.hero .actions{margin-left:40px}
 @media(max-width:767px){.hero h1,.hero-description{margin-left:20px}.hero .actions{margin-left:0}}
+
+/* Revisão mobile: composição, navegação, vídeos e formulário. */
+@media(max-width:767px){
+  html,body,#app{width:100%;max-width:100%;overflow-x:hidden}
+  .site-header{height:68px}
+  .header-inner{width:100%;padding:0 20px}
+  .brand{font-size:34px}
+  .main-nav{top:68px;max-height:calc(100svh - 68px);overflow-y:auto;padding:18px 20px 24px}
+
+  .hero{height:auto;min-height:760px;background-position:62% center}
+  .hero-inner{min-height:760px;padding:106px 20px 350px;align-items:flex-start}
+  .hero-copy{width:100%;max-width:100%}
+  .hero .eyebrow{font-size:9px;letter-spacing:.22em;gap:10px}
+  .hero-lettering{width:100%;max-width:430px;margin:10px 0 4px -6px}
+  .hero h1{max-width:100%;margin:0 0 10px;font-size:clamp(30px,9vw,42px);line-height:1.06;white-space:normal}
+  .hero-description{max-width:100%;margin:0 0 22px;font-size:10px;line-height:1.55;letter-spacing:.16em;white-space:normal}
+  .hero h1,.hero-description,.hero .actions{margin-left:0}
+  .actions{width:100%;max-width:330px}
+  .hero .button{width:100%;min-width:0;min-height:52px;padding:0 17px;font-size:10px;gap:12px}
+  .hero-singer{right:-10%;bottom:0;height:45%;max-width:none}
+  .scroll-cue{display:none}
+
+  .ministry{padding-top:68px}
+  .ministry-visual{width:100%;height:500px;min-height:500px;max-height:none}
+  .ministry-visual img{left:50%;bottom:0;width:auto;height:100%;max-width:none;transform:translateX(-50%)}
+  .outline-name{left:4%;top:3%;font-size:46vw}
+  .ministry-copy{width:100%;padding:42px 20px 66px}
+  .ministry h1{font-size:clamp(62px,18vw,92px);margin:20px 0;line-height:.94}
+  .ministry-intro{font-size:16px;line-height:1.55;letter-spacing:.03em}
+  .ministry .event-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  .ministry .event-types li{display:flex;align-items:center;justify-content:center;min-width:0;padding:8px 5px;font-size:9px;letter-spacing:.08em;text-align:center}
+  .ministry .button{min-height:56px;padding:0 12px;font-size:11px;letter-spacing:.11em}
+  .gallery-jump{font-size:10px;letter-spacing:.14em}
+
+  .gallery-section{padding:64px 20px 64px}
+  .gallery-heading h2{font-size:clamp(44px,13vw,64px);line-height:1}
+  .gallery-grid{grid-template-columns:1fr;gap:18px}
+  .video-image{aspect-ratio:4/5}
+  .video-meta{padding:14px}
+  .gallery-footer>span{display:block;line-height:1.7;letter-spacing:.2em}
+
+  .video-dialog{box-sizing:border-box;width:calc(100vw - 20px);max-width:none;max-height:calc(100svh - 20px);margin:auto;overflow:auto}
+  .dialog-frame{width:100%;padding:14px 12px 12px}
+  .dialog-close{right:10px;top:9px;width:38px;height:38px}
+  .dialog-label{margin:10px 48px 14px 2px;font-size:10px;letter-spacing:.18em}
+  .dialog-label span{margin-left:7px}
+  .video-dialog video{display:block;width:100%;height:auto;max-width:100%;max-height:62svh;margin:0;aspect-ratio:9/16;object-fit:contain}
+  .dialog-actions{width:100%;gap:8px;margin-top:12px}
+  .dialog-actions button{flex:1;min-width:0;padding:11px 6px;font-size:9px;letter-spacing:.08em;white-space:nowrap}
+
+  .booking{display:block;width:100%;padding:100px 20px 56px}
+  .booking-intro{width:100%;max-width:none;padding:0 0 28px}
+  .booking h1{font-size:clamp(54px,17vw,82px);line-height:.94;margin:20px 0 24px}
+  .booking-intro>p:not(.eyebrow){font-size:15px;line-height:1.6}
+  .form-panel{width:100%;max-width:100%;padding:24px 18px}
+  .form-panel h2{font-size:32px;margin-bottom:25px}
+  .form-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  .field,.field.full{grid-column:1;min-width:0}
+  .field input,.field select,.field textarea{max-width:100%;font-size:16px}
+}
+
+@media(max-width:390px){
+  .hero{min-height:720px}
+  .hero-inner{min-height:720px;padding-top:98px;padding-bottom:330px}
+  .hero-singer{right:-18%;height:43%}
+  .ministry-visual{height:430px;min-height:430px}
+  .ministry h1{font-size:60px}
+  .video-dialog video{max-height:60svh}
+  .booking{padding-left:16px;padding-right:16px}
+  .form-panel{padding-left:15px;padding-right:15px}
+}
