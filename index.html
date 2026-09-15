@@ -1,191 +1,26 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento Eric</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090b"><meta name="description" content="Conheça o ministério do cantor Eric e envie um convite para seu evento.">
+  <meta property="og:title" content="Eric | Louvor & Adoração"><meta property="og:description" content="Uma voz. Um propósito. Convide Eric para seu evento.">
+  <meta property="og:type" content="website"><meta property="og:image" content="/assets/eric-social-v3.png">
+  <title>Eric | Louvor & Adoração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="container-principal">
-        <!-- Imagem Eric1 no canto superior esquerdo -->
-        <div class="imagem-canto-esquerdo">
-            <img src="img/eric1.png" alt="Eric">
-        </div>
-        
-        <div class="conteudo">
-            <section class="central">
-                <div class="esquerda">
-                    <div class="story-bolinha" id="story1">
-                        <img src="img/Erick.png" alt="Story Eric">
-                    </div>
-                    
-                    <div class="story-modal" id="storyModal">
-    <div class="story-conteudo">
-        <span class="fechar" id="fecharModal">&times;</span>
-
-        <!-- Barra de progresso -->
-        <div class="story-bar-container" id="storyBarContainer">
-            <div class="story-bar"><div class="story-bar-fill"></div></div>
-            <div class="story-bar"><div class="story-bar-fill"></div></div>
-            <div class="story-bar"><div class="story-bar-fill"></div></div>
-            <div class="story-bar"><div class="story-bar-fill"></div></div>
-            <div class="story-bar"><div class="story-bar-fill"></div></div>
-        </div>
-
-        <video id="storyVideo" autoplay muted playsinline></video>
-
-        <!-- Botão de som -->
-<button id="toggleAudio" class="botao-audio">
-    🔇 Som
-</button>
-
-
-        <div class="story-buttons">
-            <button onclick="anteriorStory()">Anterior</button>
-            <button onclick="proximoStory()">Próximo</button>
-        </div>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Eric, início">ERIC</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="/" data-route="/">Início</a><a href="/ministerio" data-route="/ministerio">Ministério</a><a href="/agendamento" data-route="/agendamento">Agendamento</a>
+      </nav>
     </div>
-</div>
-
-
-                    <div class="wrapper-imgs">
-                        <img class="imagemg" src="img/ericpricipal.png" alt="">
-                        <img class="imagem-texto" src="img/teste.png" alt="Agendas Abertas 2026">
-                    </div>
-                </div>
-
-                <div class="direita">
-                    <div class="central_icones">
-                        <h2 class="titulo_2">Entre em contato para agendar</h2>
-                        <i class="fa-solid fa-location-dot"> 
-                            <a class="Local">Local: Evento em local a combinar</a>
-                        </i>
-                        <i class="fa-solid fa-calendar-days">
-                            <a class="Local">Disponibilidade: Conforme agendamento prévio, a ser combinado.</a>
-                        </i> 
-                        <i class="fa-solid fa-envelope"> 
-                            <a class="Local">E-mail: ericcrodrigies27@gmail.com</a>
-                        </i>
-                        <i class="fa-brands fa-whatsapp"> 
-                            <a class="Local">WhatsApp: +55 (11) 95789-2189</a>
-                        </i>
-                    </div>
-
-                    <div class="redes">
-                        <h3 class="titulo_redes">Minhas redes sociais:</h3>
-                        <div class="icones_redes">
-                            <a href="https://www.instagram.com/ericc_rodrigues/" target="_blank">
-                                <i class="fa-brands fa-instagram" id="redes_sociais"></i>
-                            </a>
-                            <a href="https://wa.me/5511957892189" target="_blank">
-                                <i class="fa-brands fa-whatsapp" id="redes_sociais"></i>
-                            </a>
-                        </div>
-                        <a href="https://wa.me/5511957892189" class="buton_fale_comigo">Fale comigo</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>  
-
-    <script>
-       const storyBolinha = document.getElementById('story1');
-const storyModal = document.getElementById('storyModal');
-const fecharModal = document.getElementById('fecharModal');
-const storyVideo = document.getElementById('storyVideo');
-
-// Lista de vídeos
-let stories = [
-    "img/Eric1.mp4",
-    "img/Eric2.mp4",
-    "img/Eric3.mp4",
-    "img/Eric4.mp4",
-    "img/Eric5.mp4"
-];
-
-let indexStory = 0;
-
-// Seleciona todas as barras de progresso
-const storyBars = Array.from(document.querySelectorAll('.story-bar-fill'));
-
-// Atualiza as barras
-function updateBars() {
-    storyBars.forEach((bar, idx) => {
-        if(idx < indexStory) bar.style.width = '100%';
-        else bar.style.width = '0%';
-    });
-}
-
-// Anima a barra do vídeo atual
-storyVideo.addEventListener('timeupdate', () => {
-    let progress = (storyVideo.currentTime / storyVideo.duration) * 100;
-    storyBars[indexStory].style.width = progress + '%';
-});
-
-// Abrir modal
-storyBolinha.onclick = function() {
-    storyModal.style.display = "flex";
-    storyVideo.src = stories[indexStory];
-    storyVideo.play();
-    updateBars();
-}
-
-// Fechar modal
-fecharModal.onclick = function() {
-    storyModal.style.display = "none";
-    storyVideo.pause();
-}
-
-// Fechar clicando fora
-window.onclick = function(event) {
-    if(event.target == storyModal) {
-        storyModal.style.display = "none";
-        storyVideo.pause();
-    }
-}
-
-// Próximo story
-function proximoStory() {
-    indexStory++;
-    if(indexStory >= stories.length) indexStory = 0;
-    storyVideo.src = stories[indexStory];
-    storyVideo.play();
-    updateBars();
-}
-
-// Story anterior
-function anteriorStory() {
-    indexStory--;
-    if(indexStory < 0) indexStory = stories.length - 1;
-    storyVideo.src = stories[indexStory];
-    storyVideo.play();
-    updateBars();
-}
-const toggleAudioBtn = document.getElementById('toggleAudio');
-
-// Alterna o som ao clicar
-toggleAudioBtn.addEventListener('click', () => {
-    if (storyVideo.muted) {
-        storyVideo.muted = false;
-        toggleAudioBtn.textContent = "🔊 Som ligado";
-    } else {
-        storyVideo.muted = true;
-        toggleAudioBtn.textContent = "🔇 Som desligado";
-    }
-});
-
-// Abrir story automaticamente ao carregar
-window.addEventListener('load', () => {
-    storyModal.style.display = "flex";
-    storyVideo.src = stories[indexStory];
-    storyVideo.play().catch(() => {});
-    updateBars();
-});
-
-    </script>
+  </header>
+  <main id="app"></main>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>
