@@ -18,7 +18,7 @@ const routes = {
         <div class="hero-copy">
           <p class="eyebrow"><span class="dash"></span> LOUVOR &amp; ADORAÇÃO</p>
           <img class="hero-lettering" src="/assets/lettering-eric.png" alt="ERIC" width="1942" height="800" fetchpriority="high">
-          <h1 id="hero-heading">UMA VOZ. UM PROPÓSITO.</h1>
+          <h1 id="hero-heading"><span>UMA VOZ.</span> <span>UM PROPÓSITO.</span></h1>
           <p class="hero-description">LOUVOR E ADORAÇÃO EM CADA ENCONTRO.</p>
           <div class="actions"><a class="button button-primary" href="/agendamento">CONVIDAR PARA UM EVENTO <span aria-hidden="true">↗</span></a><a class="button button-outline" href="/ministerio">CONHEÇA O MINISTÉRIO <span aria-hidden="true">↗</span></a></div>
         </div>
