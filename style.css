@@ -136,3 +136,27 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
   .hero .actions{top:730px;grid-template-columns:1fr}
   .hero .button{min-height:55px}
 }
+
+/* Ajuste para a área útil real dos navegadores mobile (Safari/Chrome). */
+@media(max-width:767px){
+  .hero{height:100svh;min-height:760px;max-height:940px}
+  .ghost-portrait{top:3svh;left:-38%;width:126%}
+  .hero-singer{top:5svh;right:-16%;bottom:auto;height:50svh;max-height:480px}
+  .hero h1{top:57svh;font-size:clamp(46px,13.2vw,62px)}
+  .hero-description{top:69svh}
+  .hero .actions{top:75svh}
+}
+
+@media(max-width:390px){
+  .hero{height:100svh;min-height:720px;max-height:880px}
+  .hero-singer{top:4svh;right:-20%;height:51svh;max-height:455px}
+  .hero h1{top:56svh;font-size:clamp(43px,13vw,51px)}
+  .hero-description{top:68svh}
+  .hero .actions{top:75svh}
+}
+
+@supports(height:100dvh){
+  @media(max-width:767px){
+    .hero{height:100dvh;max-height:none}
+  }
+}
