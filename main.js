@@ -25,6 +25,26 @@ const routes = {
       </div>
       <img class="hero-singer" src="/assets/eric-cantando.png" alt="Eric cantando com o microfone e o braço erguido" width="1066" height="1450" fetchpriority="high">
       <a class="scroll-cue" href="/ministerio"><span aria-hidden="true">⌄</span>CONHEÇA O ERIC</a>
+    </section>
+    <section class="mobile-poster" aria-label="Apresentação do ministério do Eric">
+      <div class="poster-topline">
+        <strong>ERIC</strong><i aria-hidden="true"></i><span>LOUVOR<br>ADORAÇÃO<br>PROPÓSITO</span>
+        <span class="poster-mission"><b aria-hidden="true"></b>MÚSICA QUE<br>CONECTA CORAÇÕES<br>A DEUS</span>
+      </div>
+      <div class="poster-ghost" aria-hidden="true"><img src="/assets/eric-lateral-clean.png" alt=""></div>
+      <img class="poster-singer" src="/assets/eric-cantando.png" alt="Eric cantando com o braço erguido">
+      <div class="poster-message">
+        <h1>COMEÇAREMOS<br>EM <em>BREVE</em></h1>
+        <p>OBRIGADO POR ESTAR AQUI!</p>
+      </div>
+      <div class="poster-loader" aria-hidden="true"><span></span></div>
+      <p class="poster-prepare">PREPARE SEU CORAÇÃO</p>
+      <nav class="poster-values" aria-label="Conheça o ministério">
+        <a href="/ministerio"><span class="poster-icon music" aria-hidden="true">♫</span><b>LOUVOR</b></a>
+        <a href="/ministerio"><span class="poster-icon cross" aria-hidden="true">†</span><b>ADORAÇÃO</b></a>
+        <a href="/agendamento"><svg viewBox="0 0 64 48" aria-hidden="true"><circle cx="32" cy="13" r="8"></circle><circle cx="13" cy="18" r="6"></circle><circle cx="51" cy="18" r="6"></circle><path d="M18 44v-7c0-8 6-14 14-14s14 6 14 14v7M2 43v-6c0-7 5-12 11-12 4 0 7 2 9 5M62 43v-6c0-7-5-12-11-12-4 0-7 2-9 5"></path></svg><b>PROPÓSITO</b></a>
+      </nav>
+      <p class="poster-verse"><em>“TUDO TEM O SEU TEMPO,<br>E HÁ TEMPO PARA TODO O PROPÓSITO<br>DEBAIXO DO CÉU.”</em><small>ECLESIASTES 3:1</small></p>
     </section>${videoDialog()}`,
   '/ministerio': () => `
     <section class="ministry page" aria-labelledby="ministry-heading">
