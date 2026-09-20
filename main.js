@@ -34,19 +34,21 @@ const routes = {
       <div class="poster-ghost" aria-hidden="true"><img src="/assets/eric-lateral-clean.png" alt=""></div>
       <img class="poster-singer" src="/assets/eric-cantando.png" alt="Eric cantando com o braço erguido">
       <div class="poster-message">
-        <h1>COMEÇAREMOS<br>EM <em>BREVE</em></h1>
+        <h1>UMA VOZ.<br>UM <em>PROPÓSITO.</em></h1>
         <p>OBRIGADO POR ESTAR AQUI!</p>
       </div>
       <div class="poster-loader" aria-hidden="true"><span></span></div>
       <p class="poster-prepare">PREPARE SEU CORAÇÃO</p>
       <nav class="poster-values" aria-label="Conheça o ministério">
-        <a href="/ministerio"><span class="poster-icon music" aria-hidden="true">♫</span><b>LOUVOR</b></a>
-        <a href="/ministerio"><span class="poster-icon cross" aria-hidden="true">†</span><b>ADORAÇÃO</b></a>
-        <a href="/agendamento"><svg viewBox="0 0 64 48" aria-hidden="true"><circle cx="32" cy="13" r="8"></circle><circle cx="13" cy="18" r="6"></circle><circle cx="51" cy="18" r="6"></circle><path d="M18 44v-7c0-8 6-14 14-14s14 6 14 14v7M2 43v-6c0-7 5-12 11-12 4 0 7 2 9 5M62 43v-6c0-7-5-12-11-12-4 0-7 2-9 5"></path></svg><b>PROPÓSITO</b></a>
+        <a href="#mobile-ministry"><span class="poster-icon music" aria-hidden="true">♫</span><b>LOUVOR</b></a>
+        <a href="#videos"><span class="poster-icon cross" aria-hidden="true">†</span><b>ADORAÇÃO</b></a>
+        <a href="#mobile-booking"><svg viewBox="0 0 64 48" aria-hidden="true"><circle cx="32" cy="13" r="8"></circle><circle cx="13" cy="18" r="6"></circle><circle cx="51" cy="18" r="6"></circle><path d="M18 44v-7c0-8 6-14 14-14s14 6 14 14v7M2 43v-6c0-7 5-12 11-12 4 0 7 2 9 5M62 43v-6c0-7-5-12-11-12-4 0-7 2-9 5"></path></svg><b>PROPÓSITO</b></a>
       </nav>
       <p class="poster-verse"><em>“TUDO TEM O SEU TEMPO,<br>E HÁ TEMPO PARA TODO O PROPÓSITO<br>DEBAIXO DO CÉU.”</em><small>ECLESIASTES 3:1</small></p>
-    </section>${videoDialog()}`,
-  '/ministerio': () => `
+      <a class="poster-scroll" href="#mobile-ministry" aria-label="Descer para conhecer o Eric"><span aria-hidden="true">⌄</span></a>
+    </section>
+    <div class="mobile-home-flow"><div id="mobile-ministry">${routes['/ministerio'](false)}</div><div id="mobile-booking">${routes['/agendamento']()}</div></div>${videoDialog()}`,
+  '/ministerio': (includeDialog = true) => `
     <section class="ministry page" aria-labelledby="ministry-heading">
       <div class="ministry-visual reveal"><span class="outline-name" aria-hidden="true">ERIC</span><div class="portrait-glow" aria-hidden="true"></div><img src="/assets/eric-social-v3.png" alt="Eric em retrato, sorrindo, de terno preto" width="852" height="1280"></div>
       <div class="ministry-copy reveal"><p class="eyebrow"><span class="dash"></span> LOUVOR &amp; ADORAÇÃO</p><h1 id="ministry-heading">CONHEÇA<br>O <em>ERIC</em></h1><p class="ministry-intro">Uma voz a serviço da fé.<br>Louvor e adoração em encontros<br>que aproximam pessoas.</p><div class="section-divider"></div><p class="subheading">PARA CADA ENCONTRO</p><ul class="event-types"><li>CULTOS</li><li>CONGRESSOS</li><li>CELEBRAÇÕES</li></ul><a class="button button-primary" href="/agendamento">CONVIDAR PARA UM EVENTO <span aria-hidden="true">→</span></a><a class="gallery-jump" href="#videos">ASSISTA AOS VÍDEOS <span aria-hidden="true">↓</span></a></div>
@@ -60,7 +62,7 @@ const routes = {
         </button>`).join('')}</div>
       <div class="gallery-footer reveal"><span>LOUVOR • FÉ • PROPÓSITO</span><a class="button button-outline" href="/agendamento">CONVIDAR PARA UM EVENTO <span aria-hidden="true">↗</span></a></div>
     </section>
-    ${videoDialog()}`,
+    ${includeDialog ? videoDialog() : ''}`,
   '/agendamento': () => `
     <section class="booking page" aria-labelledby="booking-heading">
       <div class="booking-intro reveal"><p class="eyebrow"><span class="dash"></span> FAÇA SEU CONVITE</p><h1 id="booking-heading">VAMOS<br><em>ADORAR</em><br>JUNTOS?</h1><p>Conte sobre seu evento. Sua mensagem será preparada para envio ao WhatsApp oficial de contato.</p><div class="booking-accent" aria-hidden="true"></div></div>
@@ -94,7 +96,7 @@ function render() {
     initGallery(route === '/' && openIntroVideo);
     if (route === '/') openIntroVideo = false;
   }
-  if (route === '/agendamento') initForm();
+  if (route === '/agendamento' || route === '/') initForm();
 }
 
 let revealObserver;

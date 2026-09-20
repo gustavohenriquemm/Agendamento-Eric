@@ -162,7 +162,7 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
 }
 
 /* Cartaz exclusivo da página inicial mobile. */
-.mobile-poster{display:none}
+.mobile-poster,.mobile-home-flow{display:none}
 @media(max-width:767px){
   .home-page .site-header{display:none}
   .home-page .hero{display:none}
@@ -196,6 +196,11 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
   .poster-verse{position:absolute;z-index:7;top:89%;left:8%;right:8%;margin:0;text-align:center;color:#c8c8c8;font-size:clamp(7px,1.7vw,10px);line-height:1.7;letter-spacing:.27em}
   .poster-verse em{font-style:italic}
   .poster-verse small{display:block;margin-top:7px;font-size:.85em;letter-spacing:.25em}
+  .poster-scroll{position:absolute;z-index:10;right:4.5%;bottom:1.5%;display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(255,255,255,.7);border-radius:50%;background:rgba(8,9,11,.55);font-size:26px;line-height:1;animation:cue-bob 2s ease-in-out infinite}
+  .mobile-home-flow{display:block;background:var(--black)}
+  .mobile-home-flow #mobile-ministry,.mobile-home-flow #mobile-booking{display:block;scroll-margin-top:0}
+  .mobile-home-flow .ministry{padding-top:0}
+  .mobile-home-flow .booking{padding-top:70px}
   @keyframes poster-spin{to{transform:rotate(330deg)}}
 }
 
