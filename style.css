@@ -177,7 +177,7 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
   .poster-mission b{position:absolute;left:0;top:5px;width:36px;height:1px;background:var(--red)}
   .poster-ghost{position:absolute;z-index:-1;top:6.5%;left:-15%;width:88%;opacity:.38;filter:grayscale(1) contrast(1.16);mask-image:linear-gradient(90deg,#000 48%,rgba(0,0,0,.9) 67%,transparent 98%);-webkit-mask-image:linear-gradient(90deg,#000 48%,rgba(0,0,0,.9) 67%,transparent 98%)}
   .poster-ghost img{display:block;width:100%;height:auto}
-  .poster-singer{position:absolute;z-index:2;top:8%;right:-11%;width:auto;height:39%;max-width:none;object-fit:contain;object-position:top right;filter:drop-shadow(0 13px 20px rgba(0,0,0,.28))}
+  .poster-singer{position:absolute;z-index:2;top:8%;right:8%;width:auto;height:39%;max-width:none;object-fit:contain;object-position:top right;filter:drop-shadow(0 13px 20px rgba(0,0,0,.28))}
   .poster-message{position:absolute;z-index:5;top:44.5%;left:4%;right:4%;text-align:center}
   .poster-message h1{margin:0;font-size:clamp(56px,16vw,105px);line-height:.88;letter-spacing:-.015em;text-shadow:0 3px 22px #000}
   .poster-message h1 em{color:var(--red)}
