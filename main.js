@@ -60,6 +60,8 @@ const routes = {
           <span class="video-image"><img src="/assets/${video.poster}" alt="" width="640" height="1138" loading="lazy"><span class="play-icon" aria-hidden="true">▶</span></span>
           <span class="video-meta"><span><small>REGISTRO ${String(index + 1).padStart(2, '0')}</small><strong>ERIC EM LOUVOR</strong></span><span class="video-duration">${video.duration}</span></span>
         </button>`).join('')}</div>
+      <div class="gallery-mobile-controls" aria-label="Controles da galeria"><button type="button" data-gallery-prev aria-label="Vídeo anterior">←</button><span>DESLIZE PARA NAVEGAR</span><button type="button" data-gallery-next aria-label="Próximo vídeo">→</button></div>
+      <div class="gallery-progress" aria-hidden="true"><span></span></div>
       <div class="gallery-footer reveal"><span>LOUVOR • FÉ • PROPÓSITO</span><a class="button button-outline" href="/agendamento">CONVIDAR PARA UM EVENTO <span aria-hidden="true">↗</span></a></div>
     </section>
     ${includeDialog ? videoDialog() : ''}`,
@@ -140,6 +142,29 @@ function initGallery(autoOpen = false) {
   dialog.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => openVideo(selected + Number(button.dataset.step))));
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { player.pause(); player.removeAttribute('src'); player.load(); opener?.focus(); });
+  const gallery = document.querySelector('.gallery-grid');
+  const cards = [...document.querySelectorAll('.video-card')];
+  const progress = document.querySelector('.gallery-progress span');
+  if (gallery && cards.length) {
+    const updateCarousel = () => {
+      const viewportCenter = gallery.scrollLeft + gallery.clientWidth / 2;
+      let closest = cards[0];
+      let distance = Infinity;
+      cards.forEach(card => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const nextDistance = Math.abs(viewportCenter - cardCenter);
+        if (nextDistance < distance) { closest = card; distance = nextDistance; }
+      });
+      cards.forEach(card => card.classList.toggle('is-active', card === closest));
+      const max = gallery.scrollWidth - gallery.clientWidth;
+      const ratio = max > 0 ? gallery.scrollLeft / max : 0;
+      if (progress) progress.style.transform = `translateX(${ratio * 400}%)`;
+    };
+    gallery.addEventListener('scroll', updateCarousel, { passive: true });
+    document.querySelector('[data-gallery-prev]')?.addEventListener('click', () => gallery.scrollBy({ left: -gallery.clientWidth * .82, behavior: 'smooth' }));
+    document.querySelector('[data-gallery-next]')?.addEventListener('click', () => gallery.scrollBy({ left: gallery.clientWidth * .82, behavior: 'smooth' }));
+    requestAnimationFrame(updateCarousel);
+  }
   if (autoOpen) requestAnimationFrame(() => openVideo(0));
 }
 

@@ -212,3 +212,60 @@ body{overflow-x:hidden}.page{animation:page-enter .65s ease-out both}.reveal{opa
   .poster-prepare{letter-spacing:.4em}
   .poster-values{left:8%;right:8%}
 }
+
+/* Segunda e terceira seções mobile: eixo central, carrossel e formulário compacto. */
+.gallery-mobile-controls,.gallery-progress{display:none}
+@media(max-width:767px){
+  .ministry-copy{text-align:center;padding-left:20px;padding-right:20px}
+  .ministry .eyebrow,.ministry .gallery-jump{justify-content:center}
+  .ministry-intro{margin-left:auto;margin-right:auto}
+  .ministry .section-divider{margin-left:auto;margin-right:auto}
+  .ministry .event-types{max-width:430px;margin-left:auto;margin-right:auto}
+  .ministry .button{max-width:430px;margin-left:auto;margin-right:auto}
+  .gallery-jump{width:max-content;max-width:100%;margin-left:auto;margin-right:auto}
+
+  .gallery-section{padding-left:0;padding-right:0}
+  .gallery-heading{padding:0 20px;text-align:center}
+  .gallery-heading .eyebrow{justify-content:center}
+  .gallery-heading>p{margin-left:auto;margin-right:auto}
+  .gallery-grid{display:flex;grid-template-columns:none;gap:8px;width:100%;max-width:none;padding:12px 11vw 30px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:11vw;scrollbar-width:none;perspective:900px;overscroll-behavior-x:contain}
+  .gallery-grid::-webkit-scrollbar{display:none}
+  .gallery-grid .video-card{flex:0 0 78vw;max-width:340px;scroll-snap-align:center;opacity:.42;transform:scale(.88) rotateY(3deg);transform-origin:center;filter:saturate(.55);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.75,.2,1),filter .45s,box-shadow .45s,border-color .3s}
+  .gallery-grid .video-card:nth-child(even){transform:scale(.88) rotateY(-3deg)}
+  .gallery-grid .video-card.is-active{opacity:1;transform:scale(1) rotateY(0);filter:saturate(1);border-color:rgba(239,43,45,.7);box-shadow:0 22px 55px rgba(0,0,0,.55),0 0 0 1px rgba(239,43,45,.15)}
+  .gallery-grid .video-card:hover{transform:scale(1) rotateY(0)}
+  .video-image{aspect-ratio:4/5}
+  .gallery-mobile-controls{display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:12px;margin:0 20px}
+  .gallery-mobile-controls button{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(255,255,255,.04);color:var(--white);font-size:21px;transition:background .2s,border-color .2s,transform .2s}
+  .gallery-mobile-controls button:active{background:var(--red);border-color:var(--red);transform:scale(.92)}
+  .gallery-mobile-controls span{text-align:center;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.2em;animation:carousel-hint 2.2s ease-in-out infinite}
+  .gallery-progress{position:relative;display:block;height:2px;margin:18px 20px 0;background:rgba(255,255,255,.12);overflow:hidden}
+  .gallery-progress span{display:block;width:20%;height:100%;background:var(--red);box-shadow:0 0 14px rgba(239,43,45,.8);transition:transform .16s linear}
+  .gallery-footer{margin-left:20px;margin-right:20px;text-align:center}
+  @keyframes carousel-hint{0%,100%{opacity:.55;letter-spacing:.2em}50%{opacity:1;letter-spacing:.25em}}
+
+  .booking{padding:64px 16px 48px;text-align:center}
+  .booking-intro{padding-bottom:20px;margin:0 auto}
+  .booking-intro .eyebrow{justify-content:center}
+  .booking h1{font-size:clamp(48px,14vw,68px);line-height:.9;margin:18px 0}
+  .booking-intro>p:not(.eyebrow){max-width:430px;margin-left:auto;margin-right:auto;font-size:14px;line-height:1.55}
+  .booking-accent{width:70px;margin:18px auto 0}
+  .form-panel{padding:20px 14px;text-align:left}
+  .panel-kicker{text-align:center;font-size:9px}
+  .form-panel h2{text-align:center;font-size:29px;margin-bottom:20px}
+  .form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 9px}
+  .field,.field.full{grid-column:auto}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:10px;line-height:1.25;margin-bottom:6px}
+  .field input,.field select,.field textarea{min-height:43px;padding:9px 10px;font-size:16px}
+  .field textarea{min-height:76px}
+  .field .error{min-height:12px;padding-top:2px;font-size:9px}
+  .submit-button{min-height:52px;margin-top:8px;font-size:10px}
+  .booking-notice{font-size:10px;text-align:center;margin-top:11px}
+}
+
+@media(max-width:340px){
+  .form-grid{grid-template-columns:1fr}
+  .field,.field.full{grid-column:1}
+  .gallery-grid .video-card{flex-basis:82vw}
+}
